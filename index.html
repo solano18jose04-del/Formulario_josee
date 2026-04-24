@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Landing</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header id="encabezado">
+    <h1>✨ Mi Sitio Web ✨</h1>
+    <p>Bienvenido a algo increíble</p>
+  </header>
+
+  <main>
+    <section class="bloque">
+      <p class="texto">🚀 Contenido 1</p>
+      <p class="texto">💡 Contenido 2</p>
+    </section>
+
+    <section class="formulario">
+      <h2>Contáctanos</h2>
+
+      <form id="contactoForm">
+        <input type="text" placeholder="Nombres y Apellidos" required>
+        <input type="text" placeholder="Teléfono" required>
+        <input type="text" placeholder="Tipo de documento" required>
+        <input type="text" placeholder="Número de documento" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <button type="submit">Enviar 🚀</button>
+      </form>
+
+      <div id="mensajeExito" class="success-message hidden" aria-live="polite">
+        <p>Mensaje enviado con éxito</p>
+        <button type="button" id="volverBtn">Volver al sitio</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto realizado por: <span>[Jose Solano]</span></p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactoForm');
+    const mensajeExito = document.getElementById('mensajeExito');
+    const volverBtn = document.getElementById('volverBtn');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      form.classList.add('hidden');
+      mensajeExito.classList.remove('hidden');
+      mensajeExito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    volverBtn.addEventListener('click', function() {
+      mensajeExito.classList.add('hidden');
+      form.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
